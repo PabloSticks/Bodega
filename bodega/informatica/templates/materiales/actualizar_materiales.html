@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar Material</title>
+</head>
+<body>
+    <h1>Actualizar Material</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" value="{{ material.nombre }}" required><br>
+
+        <label for="modelo">Modelo:</label>
+        <input type="text" name="modelo" id="modelo" value="{{ material.modelo }}" required><br>
+
+        <label for="stock">Stock:</label>
+        <input type="number" name="stock" id="stock" value="{{ material.stock }}" required><br>
+
+        <label for="estado">Activo:</label>
+        <input type="checkbox" name="estado" id="estado" {% if material.estado %}checked{% endif %}><br>
+
+        <button type="submit">Guardar Cambios</button>
+    </form>
+    <a href="{% url 'listar_materiales' %}">Cancelar</a>
+</body>
+</html>

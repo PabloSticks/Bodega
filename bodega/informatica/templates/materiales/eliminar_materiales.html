@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar Material</title>
+</head>
+<body>
+    <h1>¿Está seguro de que desea eliminar el material "{{ material.nombre }}"?</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Sí, eliminar</button>
+        <a href="{% url 'listar_material' %}">Cancelar</a>
+    </form>
+</body>
+</html>
