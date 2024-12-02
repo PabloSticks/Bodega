@@ -1,0 +1,57 @@
+
+/* BASE */ 
+
+.bg-purple {
+    background-color: #6f42c1 !important;
+}
+
+.navbar h2 {
+    font-size: 2rem;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+}
+
+/* CARTAS HOME */ 
+
+.card-title {
+    font-size: 1.25rem;
+    color: #6f42c1;
+}
+
+.card-text {
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background-color: #6f42c1;
+    border-color: #6f42c1;
+}
+
+.btn-primary:hover {
+    background-color: #5a379e;
+    border-color: #5a379e;
+}
+
+/* FOOTER */ 
+
+   html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1; 
+}
+
+footer {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: relative;
+}

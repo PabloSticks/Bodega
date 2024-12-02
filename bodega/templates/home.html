@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Bienvenido, {{ request.session.usuario_nombre }}</h1>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+            <!-- TARJETA LISTAR USUARIOS -->
+            <div class="col">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">Gestión de Usuarios</h5>
+                        <p class="card-text text-muted">Administra los usuarios registrados en el sistema.</p>
+                        <a href="{% url 'listar_usuario' %}" class="btn btn-primary">Ver Usuarios</a>
+                    </div>
+                </div>
+            </div>
+
+           <!-- TARJETA LISTAR DOCENTES -->
+            <div class="col">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">Gestión de Docentes</h5>
+                        <p class="card-text text-muted">Administra los Docentes registrados en el sistema.</p>
+                        <a href="{% url 'listar_docente' %}" class="btn btn-primary">Ver Docentes</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA LISTAR MATERIALES -->
+            <div class="col">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">Gestión de Materiales</h5>
+                        <p class="card-text text-muted">Administra los materiales registrados en el sistema.</p>
+                        <a href="{% url 'listar_materiales' %}" class="btn btn-primary">Ver Materiales</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

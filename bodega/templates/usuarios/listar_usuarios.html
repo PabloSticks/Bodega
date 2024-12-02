@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Usuarios{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Lista de Usuarios</h1>
+    
+    <!-- Botón para Crear Usuario -->
+    <div class="text-end mb-3">
+        <a href="{% url 'crear_usuario' %}" class="btn btn-success">Crear Usuario</a>
+    </div>
+
+    <!-- Tabla de Usuarios -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Rol</th>
+                    <th>Creado</th>
+                    <th>Actualizado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario.nombre }}</td>
+                    <td>{{ usuario.correo }}</td>
+                    <td>{{ usuario.get_id_rol_display }}</td>
+                    <td>{{ usuario.creado|date:"d/m/Y H:i" }}</td>
+                    <td>{{ usuario.actualizado|date:"d/m/Y H:i" }}</td>
+                    <td class="text-center">
+                        <a href="{% url 'actualizar_usuario' usuario.id %}" class="btn btn-warning btn-sm">Editar</a>
+                        <form action="{% url 'eliminar_usuario' usuario.id %}" method="POST" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center">No hay usuarios registrados.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+</body>
+</html>

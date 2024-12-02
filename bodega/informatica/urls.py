@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+handler403 = 'informatica.views.permission_denied'
+
 urlpatterns = [
     path('login/', views.user_login, name='login'),
     path('logout/', views.user_logout, name='logout'),
@@ -20,5 +22,9 @@ urlpatterns = [
     path('listar_materiales/', views.listar_materiales, name='listar_materiales'),
     path('actualizar_materiales/<int:material_id>/', views.actualizar_materiales, name='actualizar_materiales'),
     path('eliminar_materiales/<int:material_id>/', views.eliminar_materiales, name='eliminar_materiales'),
+
+    path('registrar_asignacion/', views.registrar_asignacion, name='registrar_asignacion'),
+    path('listar_asignaciones/', views.listar_asignaciones, name='listar_asignaciones'),
 ]
+
 

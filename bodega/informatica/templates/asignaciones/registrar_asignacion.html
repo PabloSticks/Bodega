@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Asignación</title>
+</head>
+<body>
+    <h1>Registrar Asignación</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="docente">Docente:</label>
+        <select name="docente" id="docente" required>
+            {% for docente in docentes %}
+            <option value="{{ docente.id }}">{{ docente.nombre }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="material">Material:</label>
+        <select name="material" id="material" required>
+            {% for material in materiales %}
+            <option value="{{ material.id }}">{{ material.nombre }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" name="cantidad" id="cantidad" required><br>
+
+        <button type="submit">Registrar</button>
+    </form>
+</body>
+</html>

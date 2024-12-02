@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Asignaciones</title>
+</head>
+<body>
+    <h1>Lista de Asignaciones</h1>
+    <a href="{% url 'registrar_asignacion' %}">Registrar Nueva Asignación</a>
+    <table>
+        <tr>
+            <th>Docente</th>
+            <th>Material</th>
+            <th>Cantidad</th>
+            <th>Fecha</th>
+        </tr>
+        {% for asignacion in asignaciones %}
+        <tr>
+            <td>{{ asignacion.docente.nombre }}</td>
+            <td>{{ asignacion.material.nombre }}</td>
+            <td>{{ asignacion.cantidad }}</td>
+            <td>{{ asignacion.fecha_asignacion }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

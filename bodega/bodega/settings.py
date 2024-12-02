@@ -12,9 +12,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
-LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/home/'  # Página a donde se redirige tras iniciar sesión
+LOGIN_URL = '/login'
+
+LOGIN_REDIRECT_URL = '/home'  # Página a donde se redirige tras iniciar sesión
 LOGOUT_REDIRECT_URL = '/login/'  # Página tras cerrar sesión
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -58,6 +62,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'bodega.urls'
 
+# Configuración de Archivos Estáticos
+STATIC_URL = '/static/'
+
+# Ruta donde Django buscará los archivos estáticos durante el desarrollo
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -88,6 +100,10 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
+       '    OPTIONS': {
+            'charset': 'utf8mb4',  # Codificación recomendada
+            'sql_mode': 'STRICT_TRANS_TABLES',  # Modo SQL estricto para evitar errores futuros
+        },
     }
 }
 

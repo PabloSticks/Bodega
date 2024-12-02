@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
 </head>
 <body>
-    <h1>Bienvenido {{ user.username }}</h1>
+    <h1>Bienvenido, {{ user.username }}</h1>
 
     {% if es_admin %}
         <h2>Panel de Administración</h2>
@@ -13,7 +14,12 @@
             <li><a href="{% url 'listar_usuario' %}">Gestionar Usuarios</a></li>
             <li><a href="{% url 'listar_docente' %}">Gestionar Docentes</a></li>
             <li><a href="{% url 'listar_materiales' %}">Gestionar Materiales</a></li>
-
+        </ul>
+    {% elif es_panol %}
+        <h2>Panel de Pañol</h2>
+        <ul>
+            <li><a href="{% url 'registrar_asignacion' %}">Registrar Asignaciones</a></li>
+            <li><a href="{% url 'listar_asignaciones' %}">Listar Asignaciones</a></li>
         </ul>
     {% endif %}
 
